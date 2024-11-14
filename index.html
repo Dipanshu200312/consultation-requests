@@ -140,7 +140,7 @@
             width: 100%;
             padding: 1em;
             font-size: 1.2em;
-            background-color: #002f5f;
+            background-color: #245e00;
             color: #ffffff;
             border: none;
             border-radius: 4px;
@@ -164,7 +164,15 @@
                 border-right: none;
                 padding-right: 0;
             }
-
+            .headertr {
+            background-color: #002f5f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2em;
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
             .content,
             .form-container {
                 max-width: 100%;
@@ -227,6 +235,7 @@
     flex-direction: column;
 }
 
+
 /* First, Middle, Last Name in One Line */
 .name-fields {
     display: flex;
@@ -285,6 +294,55 @@
 .social-icons a:hover {
     color: #0077b5; /* LinkedIn blue for example */
 }
+.mobile-form {
+        display: none;
+    }
+
+    /* Show the form only on mobile screens */
+    @media (max-width: 768px) {
+        .mobile-form {
+            display: block;
+        }
+        .mobilets{
+            display: none;
+        }
+    }
+    /* Make the list inline for all devices */
+.co/* Make the list inline for all devices */
+.contact-list {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.contact-list li {
+    margin-right: 10px; /* Space between items */
+    display: inline-block; /* Make list items inline */
+}
+
+@media (max-width: 767px) {
+    /* For mobile devices, ensure everything fits on one line */
+    .contact-list {
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    }
+
+    .contact-list li {
+        margin-right: 5px; /* Space adjustments for mobile */
+    }
+
+    .contact-list li a {
+        font-size: 12px; /* Smaller font for mobile */
+    }
+
+    .hidden-xs {
+        display: none; /* Hide the hidden-xs items on mobile */
+    }
+}
+
+
+    
     </style>
     <link rel="stylesheet" href="style.css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css" />
@@ -309,12 +367,29 @@
                     border-top-color: #0077b3;
                 ">
                         <div class="container">
-                            <p>
-                                Get in touch! <span class="ml-xs"><i class="fa fa-phone"></i>9599445568 | <span class="visible-xs"><a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserSignup/UserType.aspx" target="_blank" class="btn btn-quaternary mr-xs btn-xs">Become Estate Planner</a> <a href="https://www.nexgentransfer.com/consultation-request.aspx" class="btn btn-quaternary mr-xs btn-xs">Free Consultation</a></span></span>
-                                <span class="hidden-xs">| <i class="fa fa-envelope"></i><a href="mailto:info@nexgentransfer.com">info@nexgentransfer.com</a> | <a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserSignup/UserType.aspx" target="_blank" class="btn btn-quaternary mr-xs btn-xs">Become Estate Planner</a> | <a href="https://www.nexgentransfer.com/consultation-request.aspx" class="btn btn-quaternary mr-xs btn-xs">Request Free Consultation</a></span>
-                            </p>
+                            <ul class="contact-list">
+                                <li>Get in touch!</li>
+                                <li><i class="fa fa-phone"></i> 9599445568</li>
+                                <li>
+                                    <a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserSignup/UserType.aspx" target="_blank" class="btn btn-quaternary mr-xs btn-xs">Become Estate Planner</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.nexgentransfer.com/consultation-request.aspx" class="btn btn-quaternary mr-xs btn-xs">Free Consultation</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <i class="fa fa-envelope"></i><a href="mailto:info@nexgentransfer.com">info@nexgentransfer.com</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserSignup/UserType.aspx" target="_blank" class="btn btn-quaternary mr-xs btn-xs">Become Estate Planner</a>
+                                </li>
+                                <li class="hidden-xs">
+                                    <a href="https://www.nexgentransfer.com/consultation-request.aspx" class="btn btn-quaternary mr-xs btn-xs">Request Free Consultation</a>
+                                </li>
+                                <li><a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserLogin/nexgen_userlogin.aspx">Login</a> | <a href="starting-estate-planning.aspx">Getting Started</a> | <a href="#">Glossary</a> | <a href="https://www.nexgentransfer.com/frequently-asked-questions-wills-trusts.aspx">FAQ</a></li>
+                            </ul>
+                            
                             <ul class="header-social-icons" style="display:inline;list-style:none;">
-								<li><a href="http://www.nexgentransfer.com/NexGen/NexGenUser/NexGenUserLogin/nexgen_userlogin.aspx">Login</a> | <a href="starting-estate-planning.aspx">Getting Started</a> | <a href="#">Glossary</a> | <a href="https://www.nexgentransfer.com/frequently-asked-questions-wills-trusts.aspx">FAQ</a></li>
+								
 							</ul>
                             <!-- <ul class="header-social-icons social-icons hidden-xs">
 								    <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -449,7 +524,109 @@
                 Whether you’re looking to protect your assets from unexpected claims, manage inheritance for family members living abroad, or create a smooth transfer plan, our experienced advisors are here to help.
             </p>
         </div>
+<!-- Form Section (Mobile Only) -->
+<div class="form-container mobile-form">
+    <h2>Book Your Free Consultation</h2>
+    <form id="consultationForm" action="#" method="POST" onsubmit="return validateForm()">
+        <!-- Consultation Regarding -->
+        <div class="form-group">
+            <label for="consultation">Consultation Regarding *</label>
+            <select id="consultation" name="consultation" required>
+                <option value="Estate Planning">Estate Planning</option>
+                <option value="Family Trusts">Family Trusts</option>
+                <option value="Wills and Inheritance">Wills and Inheritance</option>
+            </select>
+        </div>
 
+        <!-- Marital Status -->
+        <div class="form-group">
+            <label for="maritalStatus">Marital Status *</label>
+            <select id="maritalStatus" name="maritalStatus" required>
+                <option value="Unmarried Individual">Unmarried Individual</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+        </div>
+
+        <!-- Salutation -->
+        <div class="form-group">
+            <label for="salutation">Salutation *</label>
+            <select id="salutation" name="salutation" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+            </select>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <!-- Spouse/Partner Salutation -->
+        <div class="form-group">
+            <label for="spouseSalutation">Salutation (Spouse/Partner) *</label>
+            <select id="spouseSalutation" name="spouseSalutation" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+            </select>
+        </div>
+
+        <!-- Spouse/Partner -->
+        <div class="form-group">
+            <label for="spousePartner">Spouse/Partner</label>
+            <input type="text" id="spousePartner" name="spousePartner">
+        </div>
+
+        <!-- Country -->
+        <div class="form-group">
+            <label for="country">Country *</label>
+            <select id="country" name="country" required>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <!-- Best time to call -->
+        <div class="form-group">
+            <label for="call">Best time to call *</label>
+            <select id="call" name="call" required>
+                <option value="Anytime">Anytime</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+            </select>
+        </div>
+
+        <!-- Preferred Meeting Method -->
+        <div class="form-group">
+            <label for="meetingMethod">Preferred Meeting Method *</label>
+            <select id="meetingMethod" name="meetingMethod" required>
+                <option value="Tele Conference">Tele Conference</option>
+                <option value="Virtual Online Meeting">Virtual Online Meeting</option>
+                <option value="In Person Meeting">In Person Meeting</option>
+            </select>
+        </div>
+
+        <!-- reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+
+        <!-- Submit Button -->
+        <button type="submit">Book Your Free Consultation</button>
+    </form>
+</div>
         <div class="section-title">Why Choose NEXGEN?</div>
         <div class="section-content">
             <ul>
@@ -483,89 +660,110 @@
   
 
 <!-- Form Section -->
-<div class="form-container">
+<div class="form-container mobilets">
     <h2>Book Your Free Consultation</h2>
     <form id="consultationForm" action="#" method="POST" onsubmit="return validateForm()">
         
         <!-- Consultation Regarding -->
-        <label for="consultation">Consultation Regarding *</label>
-        <select id="consultation" name="consultation" required>
-            <option value="Estate Planning">Estate Planning</option>
-            <option value="Family Trusts">Family Trusts</option>
-            <option value="Wills and Inheritance">Wills and Inheritance</option>
-        </select>
+        <div class="form-group">
+            <label for="consultation">Consultation Regarding *</label>
+            <select id="consultation" name="consultation" required>
+                <option value="Estate Planning">Estate Planning</option>
+                <option value="Family Trusts">Family Trusts</option>
+                <option value="Wills and Inheritance">Wills and Inheritance</option>
+            </select>
+        </div>
 
         <!-- Marital Status -->
-        <label for="maritalStatus">Marital Status *</label>
-        <select id="maritalStatus" name="maritalStatus" required>
-            <option value="Unmarried Individual">Unmarried Individual</option>
-            <option value="Married">Married</option>
-            <option value="Divorced">Divorced</option>
-        </select>
+        <div class="form-group">
+            <label for="maritalStatus">Marital Status *</label>
+            <select id="maritalStatus" name="maritalStatus" required>
+                <option value="Unmarried Individual">Unmarried Individual</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+        </div>
 
         <!-- Salutation -->
-        <label for="salutation">Salutation *</label>
-        <select id="salutation" name="salutation" required>
-            <option value="Mr.">Mr.</option>
-            <option value="Ms.">Ms.</option>
-            <option value="Mrs.">Mrs.</option>
-            <option value="Dr.">Dr.</option>
-        </select>
+        <div class="form-group">
+            <label for="salutation">Salutation *</label>
+            <select id="salutation" name="salutation" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+            </select>
+        </div>
 
         <!-- Full Name -->
-        <label for="fullName">Full Name *</label>
-        <input type="text" id="fullName" name="fullName">
+        <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
 
-         <!-- Salutation -->
-         <label for="salutation">Salutation (Spouse/Partner) *</label>
-         <select id="salutation" name="salutation" required>
-             <option value="Mr.">Mr.</option>
-             <option value="Ms.">Ms.</option>
-             <option value="Mrs.">Mrs.</option>
-             <option value="Dr.">Dr.</option>
-         </select>
+        <!-- Spouse/Partner Salutation -->
+        <div class="form-group">
+            <label for="spouseSalutation">Salutation (Spouse/Partner) *</label>
+            <select id="spouseSalutation" name="spouseSalutation" required>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+            </select>
+        </div>
+
         <!-- Spouse/Partner -->
-        <label for="spousePartner">Spouse/Partner </label>
-        <input type="text" id="spousePartner" name="spousePartner">
+        <div class="form-group">
+            <label for="spousePartner">Spouse/Partner</label>
+            <input type="text" id="spousePartner" name="spousePartner">
+        </div>
 
         <!-- Country -->
-        <label for="country">Country *</label>
-        <select id="country" name="country" required>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-            <option value="Other">Other</option>
-        </select>
- <!-- $mail -->
- <label for="Email">Email *</label>
- <input type="email" id="email" name="email">
+        <div class="form-group">
+            <label for="country">Country *</label>
+            <select id="country" name="country" required>
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
 
-  <!-- Full Name -->
-  <label for="Best time to call">Best time to call *</label>
-  <select id="call" name="call" required>
-      <option value="Anytime">Anytime</option>
-      <option value="Morning">Morning</option>
-      <option value="Afternoon">Afternoon</option>
-      <option value="Evening">Evening</option>
-  </select>
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
 
-  <!-- Full Name -->
-  <label for="Best time to call">Preferred Meeting Method *</label>
-  <select id="call" name="call" required>
-      <option value="Tele Conference">Tele Conference</option>
-      <option value="Virtual Online Meeting">Virtual Online Meeting</option>
-      <option value="In Person Meeting">In Person Meeting</option>
-     
-  </select>
- 
+        <!-- Best time to call -->
+        <div class="form-group">
+            <label for="call">Best time to call *</label>
+            <select id="call" name="call" required>
+                <option value="Anytime">Anytime</option>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+            </select>
+        </div>
+
+        <!-- Preferred Meeting Method -->
+        <div class="form-group">
+            <label for="meetingMethod">Preferred Meeting Method *</label>
+            <select id="meetingMethod" name="meetingMethod" required>
+                <option value="Tele Conference">Tele Conference</option>
+                <option value="Virtual Online Meeting">Virtual Online Meeting</option>
+                <option value="In Person Meeting">In Person Meeting</option>
+            </select>
+        </div>
 
         <!-- reCAPTCHA widget -->
         <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
 
         <!-- Submit Button -->
-        <button type="submit">Book Your Consultation</button>
+        <button type="submit">Book Your Free Consultation</button>
     </form>
 </div>
+
 </section>
 
 
